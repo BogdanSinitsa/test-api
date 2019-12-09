@@ -28,7 +28,7 @@ $ npm run start:prod
 
 collect page views
 ```
-curl -X POST \
+$ curl -X POST \
   http://127.0.0.1:3001/page-views \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
@@ -50,7 +50,7 @@ curl -X POST \
 
 Get page-views by page-id
 ```
-curl -X GET \
+$ curl -X GET \
   http://127.0.0.1:3001/page-views/page/2 \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
@@ -63,7 +63,7 @@ curl -X GET \
 
 page-views by country
 ```
-curl -X GET \
+$ curl -X GET \
   http://127.0.0.1:3001/page-views/country/US \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
@@ -75,14 +75,14 @@ curl -X GET \
 ```
 get the number page-views by country
 ```
-curl -X GET \
+$ curl -X GET \
   http://127.0.0.1:3001/page-views/countries/count \
    -H 'Authorization: Bearer 6i2nSgWu0DfYIE8I0ZBJOtxTmHJATRzu' \
 ```
 
 get page-views by a browser name
 ```
-curl -X GET \
+$ curl -X GET \
   http://127.0.0.1:3001/page-views/browser/Chrome \
    -H 'Authorization: Bearer 6i2nSgWu0DfYIE8I0ZBJOtxTmHJATRzu' \
 ```
@@ -90,7 +90,7 @@ curl -X GET \
 get the rate between the number returning users
 
 ```
-curl -X GET \
+$ curl -X GET \
   http://127.0.0.1:3001/page-views/rate \
    -H 'Authorization: Bearer 6i2nSgWu0DfYIE8I0ZBJOtxTmHJATRzu' \
 ```
