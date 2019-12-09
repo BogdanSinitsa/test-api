@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
-import { TypegooseModule } from 'nestjs-typegoose';
+import { MongooseModule } from '@nestjs/mongoose';
 import { PageViewService } from './page-view.service';
 import { PageViewController } from './​page-view.controller';
-import { PageViewModel } from './page-view.model';
+import { PageViewSchema, pageViewCollectionName } from './page-view.schema';
 
 @Module({
-  imports: [TypegooseModule.forFeature([PageViewModel])],
+  imports: [MongooseModule.forFeature([
+    { name: pageViewCollectionName, schema: PageViewSchema }]),
+  ],
   controllers: [PageViewController],
   providers: [PageViewService],
 })

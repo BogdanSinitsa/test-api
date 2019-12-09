@@ -1,11 +1,22 @@
 import { Module } from '@nestjs/common';
-import { TypegooseModule } from 'nestjs-typegoose';
+import { APP_GUARD } from '@nestjs/core';
+import { MongooseModule } from '@nestjs/mongoose';
 import { PageViewModule } from './page-view/page-view.module';
+import { AccessGuard } from './common/access.guard';
 
 @Module({
   imports: [
-    TypegooseModule.forRoot('mongodb://localhost:27017/nest'), // ToDo: move to config
+    MongooseModule.forRoot(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }),
     PageViewModule,
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: AccessGuard,
+    },
   ],
 })
 export class AppModule {}
